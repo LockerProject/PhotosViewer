@@ -1,5 +1,6 @@
 /* Generic log function for debugging. */
 var log = function(msg) { if (console && console.log) console.debug(msg); };
+var baseUrl = '';
 
 function photoApp() {
     // set the params if not specified
@@ -28,7 +29,7 @@ function photoApp() {
         for (var i in photos) {
       p = photos[i];
       title = p.title ? p.title : "Unititled";
-      photoHTML += '<div class="box"><div id="' + p._id + '" class="photo"><img src="/Me/photos/image/' + p.id+ '" style="max-width:300px" /><div class="basic-data">'+title+'</div></div></div>';
+      photoHTML += '<div class="box"><div id="' + p._id + '" class="photo"><img src="' + baseUrl + '/Me/photos/image/' + p.id+ '" style="max-width:300px" /><div class="basic-data">'+title+'</div></div></div>';
   }
         return photoHTML;
     };
@@ -72,7 +73,7 @@ function photoApp() {
     var sort = '\'{"timestamp":-1}\'';
 
     var loadMorePhotosHandler = function() {
-        $.getJSON(
+        $.getJSON( baseUrl +
       '/query/getPhoto',
       {
                 'offset':offset,
@@ -85,7 +86,7 @@ function photoApp() {
     };
 
     // init
-    $.getJSON(
+    $.getJSON( baseUrl +
   '/query/getPhoto',
   {
             'offset':offset,
