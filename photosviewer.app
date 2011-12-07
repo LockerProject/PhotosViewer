@@ -7,6 +7,7 @@
     "handle":"photosviewer",
     "uses":["facebook", "twitter", "foursquare", "flickr", "gplus"],
     "autoInstall":true,
-    "author":"Singly",
+    "author":"Singly, Inc.",
+    "github":"https://github.com/LockerProject/PhotosViewer",
     "viewer":"photos"
 }
